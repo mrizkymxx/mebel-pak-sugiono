@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mebel Pak Sugiono — Jati Solid Jepara</title>
+  <meta name="description" content="Furnitur kayu jati solid dari bengkel pengrajin Jepara. Desain modern, kayu oven kering, melayani kustom ukuran.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-card: #161617;
+      --bg-subtle: #1D1D1F;
+      --text: #F5F5F7;
+      --text-secondary: #A1A1A6;
+      --text-muted: #6E6E73;
+      --accent: #D4A373;
+      --border: rgba(255, 255, 255, 0.12);
+      --header-bg: rgba(0, 0, 0, 0.82);
+      --btn-primary-bg: #F5F5F7;
+      --btn-primary-text: #000000;
+      --btn-sec-bg: rgba(255, 255, 255, 0.08);
+      --btn-sec-border: rgba(255, 255, 255, 0.12);
+      --font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    }
+
+    [data-theme="light"] {
+      --bg: #FBFBFA;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F4F4F2;
+      --text: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-muted: #86868B;
+      --accent: #8A4B20;
+      --border: rgba(0, 0, 0, 0.08);
+      --header-bg: rgba(251, 251, 250, 0.82);
+      --btn-primary-bg: #1D1D1F;
+      --btn-primary-text: #FFFFFF;
+      --btn-sec-bg: rgba(0, 0, 0, 0.04);
+      --btn-sec-border: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.45;
+      padding-bottom: 72px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* NAV BAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--header-bg);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .nav-links {
+      display: none;
+      gap: 28px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+    .nav-links a:hover {
+      color: var(--text);
+      transition: color 0.15s;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* LANGUAGE SWITCHER */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--btn-sec-bg);
+      border: 1px solid var(--btn-sec-border);
+      padding: 3px 6px;
+      border-radius: 980px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 4px;
+      border-radius: 3px;
+      transition: color 0.15s;
+    }
+    .lang-btn.active {
+      color: var(--text);
+    }
+    .lang-btn:hover {
+      color: var(--text);
+    }
+    .lang-sep {
+      color: var(--border);
+      font-size: 10px;
+      user-select: none;
+    }
+
+    /* THEME TOGGLE BUTTON */
+    .theme-toggle {
+      background: var(--btn-sec-bg);
+      border: 1px solid var(--btn-sec-border);
+      color: var(--text);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+    .theme-toggle svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* PILL BUTTONS */
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 980px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .pill-btn-primary {
+      background-color: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+    }
+    .pill-btn-primary:hover {
+      opacity: 0.92;
+      transform: scale(1.02);
+    }
+    .pill-btn-secondary {
+      background-color: var(--btn-sec-bg);
+      color: var(--text);
+      border: 1px solid var(--btn-sec-border);
+    }
+    .pill-btn-secondary:hover {
+      background-color: var(--btn-sec-bg);
+      opacity: 0.85;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 60px 0;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .hero {
+        padding: 120px 0 80px 0;
+      }
+    }
+    .hero-eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .hero-title {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 64px;
+      }
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin: 0 auto 32px auto;
+      line-height: 1.5;
+    }
+    @media (min-width: 768px) {
+      .hero-desc {
+        font-size: 19px;
+      }
+    }
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    /* HERO VISUAL */
+    .hero-visual {
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .hero-visual img {
+        height: 520px;
+      }
+    }
+
+    /* SPEC GRID */
+    .specs-section {
+      padding: 80px 0;
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .spec-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .spec-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    .spec-num {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .spec-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .spec-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* PRODUCTS */
+    .products-section {
+      padding: 60px 0 100px 0;
+    }
+    .section-header {
+      margin-bottom: 40px;
+    }
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 44px;
+      }
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, background-color 0.25s ease;
+    }
+    .product-card:hover {
+      border-color: var(--accent);
+    }
+    .product-img-wrap {
+      height: 300px;
+      overflow: hidden;
+      background: var(--bg-subtle);
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.03);
+    }
+    .product-info {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .product-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .product-detail {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .product-price {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* CUSTOM BANNER */
+    .custom-banner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px 32px;
+      text-align: center;
+      margin-top: 24px;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    @media (min-width: 768px) {
+      .custom-banner {
+        padding: 64px 48px;
+      }
+    }
+    .custom-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    @media (min-width: 768px) {
+      .custom-title {
+        font-size: 38px;
+      }
+    }
+    .custom-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 28px auto;
+      line-height: 1.55;
+    }
+
+    /* 3-STEP FLOW */
+    .flow-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .flow-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .flow-card {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+    .flow-step {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .flow-head {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .flow-body {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 60px 0 40px 0;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    /* MOBILE STICKY BAR */
+    .mobile-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 50;
+      transition: background-color 0.25s ease;
+    }
+    @media (min-width: 768px) {
+      .mobile-bar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="brand">Mebel Pak Sugiono</a>
+      
+      <nav class="nav-links">
+        <a href="#koleksi" data-i18n="nav_collection">Koleksi</a>
+        <a href="#material" data-i18n="nav_specs">Standar Kayu</a>
+        <a href="#cara-pesan" data-i18n="nav_order">Cara Pesan</a>
+        <a href="#kustom" data-i18n="nav_custom">Kustom Ukuran</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher (ID default prioritized) -->
+        <div class="lang-switch">
+          <button class="lang-btn active" id="lang-btn-id" onclick="setLanguage('id')">ID</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" id="lang-btn-en" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-btn" class="theme-toggle" aria-label="Ganti Mode Gelap/Terang" onclick="toggleTheme()">
+          <svg id="sun-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" viewBox="0 0 24 24" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Sugiono,%20saya%20mau%20konsultasi%20furnitur%20jati." 
+           target="_blank" class="pill-btn pill-btn-primary" style="font-size: 12px; padding: 6px 14px;" data-i18n="nav_wa">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow" data-i18n="hero_eyebrow">Bengkel Jepara Langsung</div>
+      <h1 class="hero-title" data-i18n="hero_title">Jati Solid.<br>Tanpa Kompromi.</h1>
+      <p class="hero-desc" data-i18n="hero_desc">
+        Dibuat dari kayu jati oven kering di Tahunan, Jepara. Dikerjakan dengan sambungan purus tradisional, dikirim langsung ke rumah Anda.
+      </p>
+      <div class="hero-cta">
+        <a id="hero-wa-link" href="https://wa.me/6281234567890?text=Halo%20Pak%20Sugiono,%20saya%20mau%20konsultasi%20mebel%20jati%20dan%20tanya%20ongkir%20ke%20kota%20saya." 
+           target="_blank" class="pill-btn pill-btn-primary" data-i18n="hero_cta_wa">
+          Konsultasi Ukuran & Ongkir
+        </a>
+        <a href="#koleksi" class="pill-btn pill-btn-secondary" data-i18n="hero_cta_col">
+          Lihat Koleksi
+        </a>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1200&q=80" 
+             alt="Meja Makan Jati Solid Jepara">
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO SPEC HIGHLIGHTS -->
+  <section id="material" class="specs-section">
+    <div class="container">
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-num">&le;12%</div>
+          <div>
+            <div class="spec-label" data-i18n="spec_mc_label">Kadar Air Oven (MC)</div>
+            <div class="spec-desc" data-i18n="spec_mc_desc">Kayu dikeringkan dalam oven resmi sebelum dirakit. Bebas resiko melengkung atau retak di ruangan ber-AC.</div>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-num">100%</div>
+          <div>
+            <div class="spec-label" data-i18n="spec_solid_label">Kayu Solid Utuh</div>
+            <div class="spec-desc" data-i18n="spec_solid_desc">Bukan serbuk MDF, partikel olahan, atau lapisan triplek tipis. Kayu utuh kokoh untuk pemakaian puluhan tahun.</div>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-num" data-i18n="spec_custom_num">Bebas</div>
+          <div>
+            <div class="spec-label" data-i18n="spec_custom_label">Kustomisasi Dimensi</div>
+            <div class="spec-desc" data-i18n="spec_custom_desc">Punya ukuran ruangan spesifik? Panjang, lebar, tinggi, dan warna finishing disesuaikan dengan denah Anda.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SHOWCASE -->
+  <section id="koleksi" class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="sec_eyebrow_col">Paling Diminati</span>
+        <h2 class="section-title" data-i18n="sec_title_col">Koleksi Utama.</h2>
+      </div>
+
+      <div class="product-grid">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80" 
+                 alt="Meja Makan Jati Sumba">
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-title" data-i18n="p1_title">Meja Makan Jati Sumba</h3>
+              <p class="product-detail" data-i18n="p1_desc">
+                Dimensi standar 180 &times; 90 &times; 75 cm. Tebal daun meja 3.0 cm solid dengan kaki balok purus murni. Pilihan finishing natural doff atau walnut brown.
+              </p>
+            </div>
+            <div class="product-bottom">
+              <span class="product-price">Rp 3.850.000</span>
+              <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Sugiono,%20saya%20tertarik%20dengan%20Meja%20Makan%20Jati%20Sumba%20(Rp%203.850.000)." 
+                 target="_blank" class="pill-btn pill-btn-secondary" style="font-size: 12px; padding: 6px 14px;" data-i18n="p1_btn">
+                Pesan / Tanya WA
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80" 
+                 alt="Kursi Jati Rotan Kalyana">
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-title" data-i18n="p2_title">Kursi Anyaman Kalyana</h3>
+              <p class="product-detail" data-i18n="p2_desc">
+                Rangka kayu jati padu dipadukan dudukan anyaman rotan alami Jepara. Ergonomis, lentur, dan sejuk digunakan dalam waktu lama.
+              </p>
+            </div>
+            <div class="product-bottom">
+              <span class="product-price">Rp 750.000</span>
+              <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Sugiono,%20saya%20mau%20pesan%20Kursi%20Anyaman%20Kalyana%20(Rp%20750.000)." 
+                 target="_blank" class="pill-btn pill-btn-secondary" style="font-size: 12px; padding: 6px 14px;" data-i18n="p2_btn">
+                Pesan / Tanya WA
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80" 
+                 alt="Credenza TV Kisi Nara">
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-title" data-i18n="p3_title">Credenza Kisi Nara</h3>
+              <p class="product-detail" data-i18n="p3_desc">
+                Panjang 160 cm, lebar 45 cm, tinggi 60 cm. Pintu geser kisi kayu lurus dengan alur rel kayu presisi tanpa karat dan lubang manajemen kabel.
+              </p>
+            </div>
+            <div class="product-bottom">
+              <span class="product-price">Rp 2.900.000</span>
+              <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Sugiono,%20saya%20tertarik%20dengan%20Credenza%20Kisi%20Nara%20(Rp%202.900.000)." 
+                 target="_blank" class="pill-btn pill-btn-secondary" style="font-size: 12px; padding: 6px 14px;" data-i18n="p3_btn">
+                Pesan / Tanya WA
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80" 
+                 alt="Meja Kerja Minimalis Jati">
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-title" data-i18n="p4_title">Meja Kerja 2 Laci</h3>
+              <p class="product-detail" data-i18n="p4_desc">
+                Panjang 140 cm, lebar 60 cm, tinggi 75 cm. Kaki ramping bergaya Skandinavia dengan 2 laci kayu jati utuh. Top coat polyurethane tahan tumpahan cairan.
+              </p>
+            </div>
+            <div class="product-bottom">
+              <span class="product-price">Rp 2.250.000</span>
+              <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Sugiono,%20saya%20mau%20pesan%20Meja%20Kerja%202%20Laci%20(Rp%202.250.000)." 
+                 target="_blank" class="pill-btn pill-btn-secondary" style="font-size: 12px; padding: 6px 14px;" data-i18n="p4_btn">
+                Pesan / Tanya WA
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BESPOKE CUSTOM BANNER -->
+      <div id="kustom" class="custom-banner">
+        <h3 class="custom-title" data-i18n="custom_title">Punya Model atau Denah Sendiri?</h3>
+        <p class="custom-desc" data-i18n="custom_desc">
+          Kirimkan foto referensi atau ukuran ruangan yang Anda miliki. Kami akan hitungkan biaya pembuatan dari rangka mentah hingga finishing siap kirim.
+        </p>
+        <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Sugiono,%20saya%20punya%20desain/sketsa%20sendiri%20mau%20tanya%20estimasi%20biayanya." 
+           target="_blank" class="pill-btn pill-btn-primary" data-i18n="custom_btn">
+          Kirim Sketsa ke WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3-STEP FLOW -->
+  <section id="cara-pesan" class="flow-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="flow_eyebrow">Alur Transaksi</span>
+        <h2 class="section-title" data-i18n="flow_title">Mudah. Jelas. Aman.</h2>
+      </div>
+
+      <div class="flow-grid">
+        <div class="flow-card">
+          <span class="flow-step" data-i18n="flow_step1">LANGKAH 01</span>
+          <h4 class="flow-head" data-i18n="flow_h1">Tentukan Spek</h4>
+          <p class="flow-body" data-i18n="flow_p1">Pilih model dari katalog atau kirim foto referensi dan ukuran ruangan yang Anda butuhkan melalui chat.</p>
+        </div>
+
+        <div class="flow-card">
+          <span class="flow-step" data-i18n="flow_step2">LANGKAH 02</span>
+          <h4 class="flow-head" data-i18n="flow_h2">DP 50% & Video Progres</h4>
+          <p class="flow-body" data-i18n="flow_p2">Uang muka dialokasikan untuk ambil kayu mentah dan bahan. Kami mengirimkan video progres saat pengerjaan finishing.</p>
+        </div>
+
+        <div class="flow-card">
+          <span class="flow-step" data-i18n="flow_step3">LANGKAH 03</span>
+          <h4 class="flow-head" data-i18n="flow_h3">Pelunasan Saat Kirim</h4>
+          <p class="flow-body" data-i18n="flow_p3">Pelunasan sisa 50% dibayarkan setelah barang selesai di-QC dan surat jalan truk ekspedisi terbit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div data-i18n="footer_address">
+        <strong>Toko Mebel Pak Sugiono</strong> &bull; Sentra Ukir & Mebel Tahunan, Jepara, Jawa Tengah
+      </div>
+      <div data-i18n="footer_hours">
+        WhatsApp: +62 812-3456-7890 &bull; Buka Setiap Hari (08.00 - 21.00 WIB)
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY BAR -->
+  <div class="mobile-bar">
+    <div>
+      <div style="font-size: 11px; color: var(--text-secondary);" data-i18n="mobile_consult">Konsultasi Pengrajin</div>
+      <div style="font-size: 13px; font-weight: 700;" data-i18n="mobile_owner">Pak Sugiono Jepara</div>
+    </div>
+    <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Sugiono,%20saya%20mau%20konsultasi%20mebel%20jati." 
+       target="_blank" class="pill-btn pill-btn-primary" style="font-size: 12px; padding: 7px 16px;" data-i18n="mobile_btn">
+      Chat WhatsApp
+    </a>
+  </div>
+
+  <!-- THEME & I18N SCRIPT -->
+  <script>
+    // I18N DICTIONARY (ID DEFAULT)
+    const translations = {
+      id: {
+        nav_collection: "Koleksi",
+        nav_specs: "Standar Kayu",
+        nav_order: "Cara Pesan",
+        nav_custom: "Kustom Ukuran",
+        nav_wa: "WhatsApp",
+        hero_eyebrow: "Bengkel Jepara Langsung",
+        hero_title: "Jati Solid.<br>Tanpa Kompromi.",
+        hero_desc: "Dibuat dari kayu jati oven kering di Tahunan, Jepara. Dikerjakan dengan sambungan purus tradisional, dikirim langsung ke rumah Anda.",
+        hero_cta_wa: "Konsultasi Ukuran & Ongkir",
+        hero_cta_col: "Lihat Koleksi",
+        spec_mc_label: "Kadar Air Oven (MC)",
+        spec_mc_desc: "Kayu dikeringkan dalam oven resmi sebelum dirakit. Bebas resiko melengkung atau retak di ruangan ber-AC.",
+        spec_solid_label: "Kayu Solid Utuh",
+        spec_solid_desc: "Bukan serbuk MDF, partikel olahan, atau lapisan triplek tipis. Kayu utuh kokoh untuk pemakaian puluhan tahun.",
+        spec_custom_num: "Bebas",
+        spec_custom_label: "Kustomisasi Dimensi",
+        spec_custom_desc: "Punya ukuran ruangan spesifik? Panjang, lebar, tinggi, dan warna finishing disesuaikan dengan denah Anda.",
+        sec_eyebrow_col: "Paling Diminati",
+        sec_title_col: "Koleksi Utama.",
+        p1_title: "Meja Makan Jati Sumba",
+        p1_desc: "Dimensi standar 180 × 90 × 75 cm. Tebal daun meja 3.0 cm solid dengan kaki balok purus murni. Pilihan finishing natural doff atau walnut brown.",
+        p1_btn: "Pesan / Tanya WA",
+        p2_title: "Kursi Anyaman Kalyana",
+        p2_desc: "Rangka kayu jati padu dipadukan dudukan anyaman rotan alami Jepara. Ergonomis, lentur, dan sejuk digunakan dalam waktu lama.",
+        p2_btn: "Pesan / Tanya WA",
+        p3_title: "Credenza Kisi Nara",
+        p3_desc: "Panjang 160 cm, lebar 45 cm, tinggi 60 cm. Pintu geser kisi kayu lurus dengan alur rel kayu presisi tanpa karat dan lubang manajemen kabel.",
+        p3_btn: "Pesan / Tanya WA",
+        p4_title: "Meja Kerja 2 Laci",
+        p4_desc: "Panjang 140 cm, lebar 60 cm, tinggi 75 cm. Kaki ramping bergaya Skandinavia dengan 2 laci kayu jati utuh. Top coat polyurethane tahan tumpahan cairan.",
+        p4_btn: "Pesan / Tanya WA",
+        custom_title: "Punya Model atau Denah Sendiri?",
+        custom_desc: "Kirimkan foto referensi atau ukuran ruangan yang Anda miliki. Kami akan hitungkan biaya pembuatan dari rangka mentah hingga finishing siap kirim.",
+        custom_btn: "Kirim Sketsa ke WhatsApp",
+        flow_eyebrow: "Alur Transaksi",
+        flow_title: "Mudah. Jelas. Aman.",
+        flow_step1: "LANGKAH 01",
+        flow_h1: "Tentukan Spek",
+        flow_p1: "Pilih model dari katalog atau kirim foto referensi dan ukuran ruangan yang Anda butuhkan melalui chat.",
+        flow_step2: "LANGKAH 02",
+        flow_h2: "DP 50% & Video Progres",
+        flow_p2: "Uang muka dialokasikan untuk ambil kayu mentah dan bahan. Kami mengirimkan video progres saat pengerjaan finishing.",
+        flow_step3: "LANGKAH 03",
+        flow_h3: "Pelunasan Saat Kirim",
+        flow_p3: "Pelunasan sisa 50% dibayarkan setelah barang selesai di-QC dan surat jalan truk ekspedisi terbit.",
+        footer_address: "<strong>Toko Mebel Pak Sugiono</strong> &bull; Sentra Ukir & Mebel Tahunan, Jepara, Jawa Tengah",
+        footer_hours: "WhatsApp: +62 812-3456-7890 &bull; Buka Setiap Hari (08.00 - 21.00 WIB)",
+        mobile_consult: "Konsultasi Pengrajin",
+        mobile_owner: "Pak Sugiono Jepara",
+        mobile_btn: "Chat WhatsApp"
+      },
+      en: {
+        nav_collection: "Collection",
+        nav_specs: "Wood Specs",
+        nav_order: "How to Order",
+        nav_custom: "Custom Size",
+        nav_wa: "WhatsApp",
+        hero_eyebrow: "Direct Jepara Workshop",
+        hero_title: "Solid Teak.<br>No Compromise.",
+        hero_desc: "Crafted from kiln-dried solid teak timber in Tahunan, Jepara. Built with traditional mortise-and-tenon joinery, delivered directly to your home.",
+        hero_cta_wa: "Inquire Custom Size & Shipping",
+        hero_cta_col: "Explore Collection",
+        spec_mc_label: "Kiln-Dry Moisture (MC)",
+        spec_mc_desc: "Lumber is verified kiln-dried before assembly. Completely free from warping or cracking in air-conditioned spaces.",
+        spec_solid_label: "100% Solid Timber",
+        spec_solid_desc: "No particle board, MDF, or veneer overlays. Genuine solid wood engineered to last for decades.",
+        spec_custom_num: "Bespoke",
+        spec_custom_label: "Dimension Customization",
+        spec_custom_desc: "Have specific floor plan requirements? Length, width, height, and finishing tones tailored precisely to your space.",
+        sec_eyebrow_col: "Most Requested",
+        sec_title_col: "Core Collection.",
+        p1_title: "Sumba Solid Teak Dining Table",
+        p1_desc: "Standard dimensions 180 × 90 × 75 cm. 3.0 cm thick solid tabletop with solid timber mortise legs. Natural matte or walnut brown finish.",
+        p1_btn: "Inquire on WhatsApp",
+        p2_title: "Kalyana Woven Teak Chair",
+        p2_desc: "Solid teak frame paired with natural woven rattan seat from Jepara. Ergonomic, breathable, and designed for prolonged comfort.",
+        p2_btn: "Inquire on WhatsApp",
+        p3_title: "Nara Slatted Credenza",
+        p3_desc: "Length 160 cm, width 45 cm, height 60 cm. Slatted sliding doors with precision rust-proof wooden rails and cable routing cutout.",
+        p3_btn: "Inquire on WhatsApp",
+        p4_title: "2-Drawer Minimalist Desk",
+        p4_desc: "Length 140 cm, width 60 cm, height 75 cm. Tapered Scandinavian legs with 2 solid teak drawers. Polyurethane spill-resistant coat.",
+        p4_btn: "Inquire on WhatsApp",
+        custom_title: "Have Your Own Design or Blueprint?",
+        custom_desc: "Send your Pinterest references or architectural floor plans. We calculate exact workshop production costs from raw frame to finished delivery.",
+        custom_btn: "Send Blueprint to WhatsApp",
+        flow_eyebrow: "Order Protocol",
+        flow_title: "Simple. Transparent. Secure.",
+        flow_step1: "STEP 01",
+        flow_h1: "Define Specifications",
+        flow_p1: "Select a catalog model or send your reference photos and room dimensions via direct chat.",
+        flow_step2: "STEP 02",
+        flow_h2: "50% Deposit & Video Updates",
+        flow_p2: "Deposit funds raw timber sourcing and finishing materials. Milestone video updates provided throughout production.",
+        flow_step3: "STEP 03",
+        flow_h3: "Final Settlement upon Dispatch",
+        flow_p3: "Remaining 50% balance settled once quality control passes and freight truck waybill is issued.",
+        footer_address: "<strong>Pak Sugiono Furniture Studio</strong> &bull; Tahunan Woodworking Center, Jepara, Central Java",
+        footer_hours: "WhatsApp: +62 812-3456-7890 &bull; Open Daily (08:00 - 21:00 WIB)",
+        mobile_consult: "Artisan Consultation",
+        mobile_owner: "Pak Sugiono Jepara",
+        mobile_btn: "WhatsApp Chat"
+      }
+    };
+
+    function setLanguage(lang) {
+      const dict = translations[lang] || translations.id;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      document.documentElement.setAttribute('lang', lang);
+      localStorage.setItem('lang', lang);
+
+      // Update button state
+      const btnId = document.getElementById('lang-btn-id');
+      const btnEn = document.getElementById('lang-btn-en');
+      if (lang === 'en') {
+        btnEn.classList.add('active');
+        btnId.classList.remove('active');
+      } else {
+        btnId.classList.add('active');
+        btnEn.classList.remove('active');
+      }
+    }
+
+    // THEME CONTROLLER
+    function updateThemeUI(theme) {
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      if (theme === 'light') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeUI(next);
+    }
+
+    // INIT
+    (function init() {
+      // 1. Language Init (Prioritize ID)
+      const savedLang = localStorage.getItem('lang') || 'id';
+      setLanguage(savedLang);
+
+      // 2. Theme Init
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeUI(savedTheme);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = prefersDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', initialTheme);
+        updateThemeUI(initialTheme);
+      }
+    })();
+  </script>
+
+</body>
+</html>
